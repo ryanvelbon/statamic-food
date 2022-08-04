@@ -1,0 +1,168 @@
+title: Recipe
+sections:
+  main:
+    display: Main
+    fields:
+      -
+        handle: title
+        field:
+          type: text
+          required: true
+          validate:
+            - required
+      -
+        handle: template
+        field:
+          type: template
+          display: Template
+          localizable: true
+      -
+        handle: description
+        field:
+          character_limit: '300'
+          antlers: false
+          display: Description
+          type: textarea
+          icon: textarea
+          listable: hidden
+          instructions_position: above
+          visibility: visible
+      -
+        handle: author
+        field:
+          type: users
+          display: Author
+          default: current
+          localizable: true
+          max_items: 1
+      -
+        handle: ingredients_table
+        field:
+          display: 'Ingredients Table'
+          type: table
+          icon: table
+          listable: hidden
+          instructions_position: above
+          visibility: visible
+      -
+        handle: method
+        field:
+          always_show_set_button: false
+          previews: true
+          buttons:
+            - h2
+            - h3
+            - bold
+            - italic
+            - unorderedlist
+            - orderedlist
+            - removeformat
+            - quote
+            - anchor
+            - h4
+          save_html: false
+          toolbar_mode: fixed
+          link_noopener: false
+          link_noreferrer: false
+          target_blank: false
+          reading_time: false
+          fullscreen: true
+          allow_source: true
+          enable_input_rules: true
+          enable_paste_rules: true
+          antlers: false
+          display: Method
+          type: bard
+          icon: bard
+          instructions: 'this is where you give the reader the instructions to make this recipe'
+          listable: hidden
+          instructions_position: above
+          visibility: visible
+  sidebar:
+    display: Sidebar
+    fields:
+      -
+        handle: slug
+        field:
+          type: slug
+          localizable: true
+      -
+        handle: date
+        field:
+          type: date
+          required: true
+          validate:
+            - required
+      -
+        handle: prep_time
+        field:
+          display: 'Prep Time'
+          type: integer
+          icon: integer
+          instructions: 'estimated time (in minutes) required to prepare meal'
+          listable: hidden
+          instructions_position: above
+          visibility: visible
+          validate:
+            - 'min:1'
+            - 'max:180'
+      -
+        handle: cook_time
+        field:
+          display: 'Cook Time'
+          type: integer
+          icon: integer
+          instructions: 'estimated time (in minutes) required for the meal to finish cooking'
+          listable: hidden
+          instructions_position: above
+          visibility: visible
+          validate:
+            - 'min:1'
+            - 'max:300'
+      -
+        handle: n_servings
+        field:
+          default: '1'
+          display: 'Recipe Servings'
+          type: integer
+          icon: integer
+          instructions: 'the number of servings'
+          listable: hidden
+          instructions_position: above
+          visibility: visible
+          validate:
+            - 'min:1'
+            - 'max:20'
+      -
+        handle: difficulty
+        field:
+          options:
+            easy: null
+            normal: null
+            hard: null
+          inline: false
+          cast_booleans: false
+          display: Difficulty
+          type: radio
+          icon: radio
+          instructions: 'How difficult is it to make this dish?'
+          listable: hidden
+          instructions_position: above
+          visibility: visible
+      -
+        handle: featured_image
+        field:
+          mode: list
+          container: assets
+          restrict: false
+          allow_uploads: true
+          show_filename: true
+          max_files: 1
+          display: 'Featured Image'
+          type: assets
+          icon: assets
+          listable: hidden
+          instructions_position: above
+          visibility: visible
+          validate:
+            - image
