@@ -10,12 +10,83 @@ sections:
           required: true
           validate:
             - required
+          width: 50
       -
-        handle: template
+        handle: title_en
         field:
-          type: template
-          display: Template
-          localizable: true
+          input_type: text
+          antlers: false
+          display: 'Title in English'
+          type: text
+          icon: text
+          width: 50
+          listable: hidden
+          instructions_position: above
+          visibility: visible
+      -
+        handle: meal_type
+        field:
+          options:
+            breakfast: breakfast
+            lunch: lunch
+            dinner: dinner
+            dessert: dessert
+          multiple: false
+          clearable: false
+          searchable: true
+          taggable: false
+          push_tags: false
+          cast_booleans: false
+          display: 'Meal Type'
+          type: select
+          icon: select
+          listable: hidden
+          instructions_position: above
+          visibility: visible
+          width: 25
+      -
+        handle: n_servings
+        field:
+          default: '1'
+          display: Servings
+          type: integer
+          icon: integer
+          instructions: 'number of servings'
+          listable: hidden
+          instructions_position: below
+          visibility: visible
+          validate:
+            - 'min:1'
+            - 'max:20'
+          width: 25
+      -
+        handle: prep_time
+        field:
+          display: 'Prep Time'
+          type: integer
+          icon: integer
+          instructions: 'estimated time (in minutes) required to prepare meal'
+          listable: hidden
+          instructions_position: below
+          visibility: visible
+          validate:
+            - 'min:1'
+            - 'max:180'
+          width: 25
+      -
+        handle: cook_time
+        field:
+          display: 'Cook Time'
+          type: integer
+          icon: integer
+          instructions: 'estimated time (in minutes) required for the meal to finish cooking'
+          listable: hidden
+          instructions_position: below
+          visibility: visible
+          validate:
+            - 'min:1'
+            - 'max:300'
+          width: 25
       -
         handle: description
         field:
@@ -24,57 +95,6 @@ sections:
           display: Description
           type: textarea
           icon: textarea
-          listable: hidden
-          instructions_position: above
-          visibility: visible
-      -
-        handle: author
-        field:
-          type: users
-          display: Author
-          default: current
-          localizable: true
-          max_items: 1
-      -
-        handle: ingredients_table
-        field:
-          display: 'Ingredients Table'
-          type: table
-          icon: table
-          listable: hidden
-          instructions_position: above
-          visibility: visible
-      -
-        handle: method
-        field:
-          always_show_set_button: false
-          previews: true
-          buttons:
-            - h2
-            - h3
-            - bold
-            - italic
-            - unorderedlist
-            - orderedlist
-            - removeformat
-            - quote
-            - anchor
-            - h4
-          save_html: false
-          toolbar_mode: fixed
-          link_noopener: false
-          link_noreferrer: false
-          target_blank: false
-          reading_time: false
-          fullscreen: true
-          allow_source: true
-          enable_input_rules: true
-          enable_paste_rules: true
-          antlers: false
-          display: Method
-          type: bard
-          icon: bard
-          instructions: 'this is where you give the reader the instructions to make this recipe'
           listable: hidden
           instructions_position: above
           visibility: visible
@@ -94,52 +114,13 @@ sections:
           validate:
             - required
       -
-        handle: prep_time
-        field:
-          display: 'Prep Time'
-          type: integer
-          icon: integer
-          instructions: 'estimated time (in minutes) required to prepare meal'
-          listable: hidden
-          instructions_position: above
-          visibility: visible
-          validate:
-            - 'min:1'
-            - 'max:180'
-      -
-        handle: cook_time
-        field:
-          display: 'Cook Time'
-          type: integer
-          icon: integer
-          instructions: 'estimated time (in minutes) required for the meal to finish cooking'
-          listable: hidden
-          instructions_position: above
-          visibility: visible
-          validate:
-            - 'min:1'
-            - 'max:300'
-      -
-        handle: n_servings
-        field:
-          default: '1'
-          display: 'Recipe Servings'
-          type: integer
-          icon: integer
-          instructions: 'the number of servings'
-          listable: hidden
-          instructions_position: above
-          visibility: visible
-          validate:
-            - 'min:1'
-            - 'max:20'
-      -
         handle: difficulty
         field:
           options:
-            easy: null
-            normal: null
-            hard: null
+            1: easy
+            2: intermediate
+            3: advanced
+            4: expert
           inline: false
           cast_booleans: false
           display: Difficulty
@@ -166,3 +147,91 @@ sections:
           visibility: visible
           validate:
             - image
+      -
+        handle: cuisines
+        field:
+          type: terms
+          taxonomies:
+            - cuisines
+          display: Cuisines
+          mode: select
+      -
+        handle: tags
+        field:
+          type: terms
+          taxonomies:
+            - tags
+          display: Tags
+          mode: select
+      -
+        handle: author
+        field:
+          type: users
+          display: Author
+          default: current
+          localizable: true
+          max_items: 1
+  instructions:
+    display: Instructions
+    fields:
+      -
+        handle: ingredients
+        field:
+          type: terms
+          taxonomies:
+            - ingredients
+          display: Ingredients
+          mode: select
+      -
+        handle: instructions
+        field:
+          display: Instructions
+          type: list
+          icon: list
+          instructions: 'list all the steps involved in making the recipe'
+          listable: hidden
+          instructions_position: above
+          visibility: visible
+      -
+        handle: content
+        field:
+          always_show_set_button: false
+          previews: true
+          buttons:
+            - h2
+            - h3
+            - bold
+            - italic
+            - unorderedlist
+            - orderedlist
+            - removeformat
+            - quote
+            - anchor
+            - h4
+          save_html: false
+          toolbar_mode: fixed
+          link_noopener: false
+          link_noreferrer: false
+          target_blank: false
+          reading_time: false
+          fullscreen: true
+          allow_source: true
+          enable_input_rules: true
+          enable_paste_rules: true
+          antlers: false
+          display: Content
+          type: bard
+          icon: bard
+          instructions: 'this is where you write a full article elaborating on each step and targeting SEO keywords'
+          listable: hidden
+          instructions_position: above
+          visibility: visible
+      -
+        handle: tips
+        field:
+          display: Tips
+          type: list
+          icon: list
+          listable: hidden
+          instructions_position: above
+          visibility: visible

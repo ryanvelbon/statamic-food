@@ -1,12 +1,13 @@
 title: Recipes
-template: default
+template: recipes/show
 layout: layout
+mount: ecb1a537-c56d-4aec-bae9-74252fe292ac
 taxonomies:
-  - ingredients
-  - tags
-  - categories
+  0: ingredients
+  1: tags
+  3: cuisines
 revisions: false
-route: '/recipes/{slug}'
+route: '/{mount}/{slug}'
 date: true
 sort_dir: asc
 date_behavior:
