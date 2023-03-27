@@ -1,0 +1,16 @@
+name: Ryan
+super: true
+id: 5636b1b7-64f4-475c-860c-6821ab445754
+password_hash: $2y$10$xez.7YG3MWkggXIQ7Y6HMeA12tjFZA8GxDabXMa3Is0eRjKLxjzyq
+preferences:
+  collections:
+    recipes:
+      columns:
+        - title
+        - cuisines
+        - date
+        - meal_type
+        - n_servings
+        - prep_time
+        - cook_time
+        - difficulty
