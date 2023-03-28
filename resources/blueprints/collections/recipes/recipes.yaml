@@ -24,6 +24,17 @@ sections:
           instructions_position: above
           visibility: visible
       -
+        handle: article_title
+        field:
+          input_type: text
+          antlers: false
+          display: 'Article Title'
+          type: text
+          icon: text
+          listable: hidden
+          instructions_position: above
+          visibility: visible
+      -
         handle: meal_type
         field:
           options:
@@ -182,6 +193,15 @@ sections:
             - ingredients
           display: Ingredients
           mode: select
+      -
+        handle: detailed_ingredients
+        field:
+          display: 'Detailed Ingredients'
+          type: list
+          icon: list
+          listable: hidden
+          instructions_position: above
+          visibility: visible
       -
         handle: instructions
         field:
