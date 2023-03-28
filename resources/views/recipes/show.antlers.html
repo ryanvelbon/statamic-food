@@ -1,2 +1,75 @@
-<h1 class="text-3xl">{{ title }}</h1>
-<p>{{ description }}</p>
+<article class="mx-auto max-w-7xl sm:px-6 lg:px-8">
+  <section class="w-full md:rounded-lg py-8 px-4 mb-4 bg-red-100">
+    <h2 class="text-4xl mb-4"><span class="font-bold">{{ title }}</span> <span>{{ title_en }}</span></h2>
+    <p class="text-gray-700">{{ description }}</p>
+  </section>
+  <section class="w-full md:rounded-lg mb-4 bg-green-100">
+    <div class="grid grid-cols-3 gap-1 md:grid-cols-6">
+      {{ loop times="6" }}
+        <div class="bg-red-700 h-24 md:h-40 text-center text-white flex flex-col items-center justify-center">
+          <i class="fas fa-user text-xl"></i>
+          <span class="font-bold">value</span>
+          <span class="text-xs text-gray-200">label</span>
+        </div>
+      {{ /loop }}
+    </div>
+  </section>
+  <section class="w-full md:rounded-lg py-8 px-4 mb-4 bg-red-100">
+    <h2 class="text-2xl font-bold mb-4">Ingredients</h2>
+    <ul>
+      {{ detailed_ingredients }}
+        <li>{{ value }}</li>
+      {{ /detailed_ingredients }}
+    </ul>
+  </section>
+  <section class="w-full md:rounded-lg py-8 px-4 mb-4 bg-red-100">
+    <h2 class="text-2xl font-bold mb-4">Instructions</h2>
+    <ol>
+      {{ instructions }}
+        <li class="bg-red-200 mb-2 px-8 py-4 flex">
+          <div class="text-xl font-bold">{{ count }}.</div>
+          <div class="ml-6">{{ value }}</div>
+        </li>
+      {{ /instructions }}
+    </ol>
+  </section>
+  <section class="w-full md:rounded-lg py-8 px-4 mb-4 bg-red-100">
+    <h3 class="text-2xl font-bold mb-4">Tips</h3>
+    <ul class="text-sm">
+      {{ tips }}
+        <li class="bg-red-200 mb-2 px-4 py-2">{{ value }}</li>
+      {{ /tips }}
+    </ul>
+  </section>
+  <section class="w-full md:rounded-lg py-8 px-4 mb-4 bg-red-100">
+    <h2 class="text-2xl font-bold mb-4">{{ article_title }}</h2>
+    {{ content | widont }}
+  </section>
+  <section class="w-full md:rounded-lg py-8 px-4 mb-4 bg-green-100">
+    <h2 class="text-2xl font-bold">Panel 2</h2>
+  </section>
+  <section class="w-full md:rounded-lg py-8 px-4 mb-4 bg-green-100">
+    <h2 class="text-2xl font-bold">Panel 3</h2>
+  </section>
+  <div class="w-full md:rounded-lg py-8 px-4 mb-4 bg-purple-100">
+    <div class="md:flex">
+      <div class="bg-purple-200">
+        <h2 class="text-2xl font-bold">Panel 4</h2>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+      </div>
+      <div class="bg-purple-500">
+        Hello
+      </div>
+    </div>
+  </div>
+  <div class="flex flex-col items-center justify-center">
+    <div class="w-full md:flex md:items-center md:justify-between">
+      <div class="bg-gray-300 h-48 md:h-64 w-full md:w-1/2 md:mb-0">
+        <!-- content for div 1 -->
+      </div>
+      <div class="bg-gray-400 h-48 md:h-64 w-full md:w-1/2">
+        <!-- content for div 2 -->
+      </div>
+    </div>
+  </div>
+</article>
