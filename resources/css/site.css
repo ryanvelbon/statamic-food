@@ -1,1 +1,14 @@
 /* This is all you. */
+
+.recipe-info {
+    @apply bg-red-700 h-24 md:h-40 text-center text-white flex flex-col items-center justify-center;
+    span:first-child {
+        @apply text-xs text-gray-200 mb-4;
+    }
+    span:last-child {
+        @apply font-bold;
+    }
+    i {
+        @apply text-2xl mb-2;
+    }
+}

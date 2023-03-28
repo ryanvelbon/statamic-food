@@ -5,13 +5,36 @@
   </section>
   <section class="w-full md:rounded-lg mb-4 bg-green-100">
     <div class="grid grid-cols-3 gap-1 md:grid-cols-6">
-      {{ loop times="6" }}
-        <div class="bg-red-700 h-24 md:h-40 text-center text-white flex flex-col items-center justify-center">
-          <i class="fas fa-user text-xl"></i>
-          <span class="font-bold">value</span>
-          <span class="text-xs text-gray-200">label</span>
-        </div>
-      {{ /loop }}
+      <div class="recipe-info">
+        <span>Meal Type</span>
+        <i class="fa-regular fa-utensils-alt"></i>
+        <span>{{ meal_type }}</span>
+      </div>
+      <div class="recipe-info">
+        <span>Servings</span>
+        <i class="fa-regular fa-pizza"></i>
+        <span>{{ n_servings }}</span>
+      </div>
+      <div class="recipe-info">
+        <span>Prep Time</span>
+        <i class="fa-regular fa-knife-kitchen"></i>
+        <span>{{ prep_time }}'</span>
+      </div>
+      <div class="recipe-info">
+        <span>Cook Time</span>
+        <i class="fa-regular fa-dial"></i>
+        <span>{{ cook_time }}'</span>
+      </div>
+      <div class="recipe-info">
+        <span>Difficulty</span>
+        <i class="fa-regular fa-hat-chef"></i>
+        <span>{{ difficulty }}</span>
+      </div>
+      <div class="recipe-info">
+        <span>Cuisine</span>
+        <i class="fa-regular fa-earth-americas"></i>
+        <span>value</span>
+      </div>
     </div>
   </section>
   <section class="w-full md:rounded-lg py-8 px-4 mb-4 bg-red-100">
