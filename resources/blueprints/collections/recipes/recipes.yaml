@@ -42,6 +42,7 @@ sections:
             lunch: lunch
             dinner: dinner
             dessert: dessert
+            snack: snack
           multiple: false
           clearable: false
           searchable: true
