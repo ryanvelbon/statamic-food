@@ -18,6 +18,11 @@ mix.postCss('resources/css/tailwind.css', 'public/css', [
     require('tailwindcss'),
 ])
 
+mix.copy('node_modules/@fortawesome/fontawesome-pro/css/fontawesome.min.css', 'public/css/fontawesome.min.css')
+   .copy('node_modules/@fortawesome/fontawesome-pro/webfonts/fa-regular-400.ttf', 'public/webfonts/fa-regular-400.ttf')
+   .copy('node_modules/@fortawesome/fontawesome-pro/webfonts/fa-regular-400.woff2', 'public/webfonts/fa-regular-400.woff2')
+   .copy('node_modules/@fortawesome/fontawesome-pro/css/regular.min.css', 'public/css/fa-regular.min.css')
+
 if (mix.inProduction()) {
    mix.version();
 }
