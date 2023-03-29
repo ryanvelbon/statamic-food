@@ -38,6 +38,7 @@ sections:
         handle: meal_type
         field:
           options:
+            anytime: anytime
             breakfast: breakfast
             lunch: lunch
             dinner: dinner
@@ -102,7 +103,7 @@ sections:
       -
         handle: description
         field:
-          character_limit: '300'
+          character_limit: '500'
           antlers: false
           display: Description
           type: textarea
