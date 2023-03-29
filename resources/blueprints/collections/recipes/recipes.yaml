@@ -97,8 +97,7 @@ sections:
           instructions_position: below
           visibility: visible
           validate:
-            - 'min:1'
-            - 'max:300'
+            - 'min:0'
           width: 25
       -
         handle: description
@@ -204,6 +203,46 @@ sections:
           listable: hidden
           instructions_position: above
           visibility: visible
+          if:
+            mutli_detailed_ingredients: '< 1'
+      -
+        handle: multi_detailed_ingredients
+        field:
+          collapse: false
+          previews: true
+          sets:
+            new_set:
+              display: 'New Set'
+              fields:
+                -
+                  handle: title
+                  field:
+                    input_type: text
+                    antlers: false
+                    display: Title
+                    type: text
+                    icon: text
+                    listable: hidden
+                    instructions_position: above
+                    visibility: visible
+                -
+                  handle: items
+                  field:
+                    display: Items
+                    type: list
+                    icon: list
+                    listable: hidden
+                    instructions_position: above
+                    visibility: visible
+          display: 'Multi Detailed Ingredients'
+          type: replicator
+          icon: replicator
+          listable: hidden
+          instructions_position: above
+          visibility: visible
+          instructions: 'use this field if the recipe involves many components (e.g., broth, garnish, side dish)'
+          if:
+            detailed_ingredients: '< 1'
       -
         handle: instructions
         field:
